@@ -1,0 +1,73 @@
+{
+    "name": "generate-react-code",
+    "version": "2.0.0",
+    "author": {
+        "name": "JP Strydom",
+        "email": "jpstrydom8@gmail.com"
+    },
+    "contributors": [
+        {
+            "name": "Muzikayise Flynn Buthelezi (zuluCoda)",
+            "email": "muzi@mfbproject.co.za",
+            "url": "https://mfbproject.co.za"
+        }
+    ],
+    "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JPStrydom/Generate-React-Code.git"
+    },
+    "bin": {
+        "generate-react-code": "./index.js"
+    },
+    "main": "index.js",
+    "keywords": [
+        "React",
+        "React-Native",
+        "Redux",
+        "Ducks",
+        "code generator"
+    ],
+    "scripts": {
+        "gen-dev": "node index.js",
+        "test": "jest --coverage",
+        "test-watch": "jest --watch --verbose",
+        "prettier": "prettier --write \"**/*.{js,scss}\"",
+        "precommit": "lint-staged"
+    },
+    "devDependencies": {
+        "coveralls": "3.0.0",
+        "husky": "0.14.3",
+        "jest": "22.2.2",
+        "lint-staged": "6.1.0"
+    },
+    "dependencies": {
+        "chalk": "2.3.1",
+        "commander": "2.14.1",
+        "lodash": "4.17.5",
+        "shelljs": "0.8.1",
+        "prettier": "1.10.2"
+    },
+    "lint-staged": {
+        "*.js": [
+            "node_modules/.bin/prettier --write",
+            "git add"
+        ]
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx}",
+            "!**/assets/**",
+            "!**/templates/**"
+        ],
+        "testMatch": [
+            "<rootDir>/src/test/?(*.)(spec|test).js?(x)"
+        ],
+        "testEnvironment": "node",
+        "testURL": "http://localhost",
+        "transformIgnorePatterns": [
+            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+        ]
+    }
+}
